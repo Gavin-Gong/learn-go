@@ -1,18 +1,18 @@
 package example
 
-import(
+import (
 	"fmt"
 )
 
-func init()  {
-	arr := [...]int {1, 2, 3, 4, 5, 6}
+func init() {
+	arr := [...]int{1, 2, 3, 4, 5, 6}
 	// range loop
 	for i, v := range arr {
 		fmt.Println(i, v)
 	}
 
 	a := 2
-	for (a < 9) {
+	for a < 9 {
 		a++
 		fmt.Println(a)
 	}
@@ -29,7 +29,7 @@ func init()  {
 
 	// coutine loop
 	for i := 0; i < 9; i++ {
-		if i% 2 == 0 {
+		if i%2 == 0 {
 			continue
 		}
 		fmt.Println(i)

@@ -1,10 +1,10 @@
 package example
 
-import ."fmt"
+import . "fmt"
 
 type Me struct {
 	name string
-	age int
+	age  int
 }
 
 // 定义结构体方法, 类似class的方法
@@ -23,7 +23,7 @@ func (m *Me) Code() {
 // go 会自动处理指针接受者和结构体接受者之间调用
 
 func init() {
-	me := Me{ "zen", 24 }
+	me := Me{"zen", 24}
 	me.ListenMusic()
 	Println(me)
 	me.Code()

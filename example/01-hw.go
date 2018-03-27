@@ -1,6 +1,6 @@
 package example
 
-import(
+import (
 	"fmt"
 )
 

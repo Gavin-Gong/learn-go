@@ -1,7 +1,7 @@
 package example
 
 import (
-	."fmt"
+	. "fmt"
 )
 
 func init() {
@@ -18,5 +18,5 @@ func closures() func() int {
 	return func() int {
 		i++
 		return i
-	} 
+	}
 }

@@ -1,6 +1,6 @@
 package example
 
-import(
+import (
 	"fmt"
 )
 
@@ -18,7 +18,6 @@ func init() {
 		fmt.Println("not  1 2 3 4")
 	}
 
-
 	// 类似if语句
 	m := 3
 	switch {
@@ -26,13 +25,11 @@ func init() {
 		fmt.Println(m)
 	case m < 4:
 		fmt.Println(m)
-	} 
+	}
 
 	// 类型switch
-	
 
 }
-
 
 func Type(i interface{}) {
 	switch i.(type) {

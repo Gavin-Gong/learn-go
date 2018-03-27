@@ -1,18 +1,18 @@
 package example
 
-import(
-	."fmt"
+import (
+	. "fmt"
 )
 
 func init() {
 	// 遍历array/slice
-	arr := [...]int{ 1, 2, 3, 4, 5}
+	arr := [...]int{1, 2, 3, 4, 5}
 	for _, v := range arr {
 		Println("print val", v)
 	}
 
 	// 遍历 map
-	dict := map[string]string{ "key": "value", "k": "v" }
+	dict := map[string]string{"key": "value", "k": "v"}
 	for k, v := range dict {
 		Println(k, v)
 	}
@@ -28,6 +28,5 @@ func init() {
 	for i, c := range "golang" {
 		Println(i, c)
 	}
-
 
 }

@@ -1,9 +1,12 @@
 package example
-import (."fmt")
+
+import (
+	. "fmt"
+)
 
 func init() {
-	arr := []int{1,2,3,4,5} // 无法使用array
-	Println(sum(arr...)) // 字符串解构 我的天
+	arr := []int{1, 2, 3, 4, 5} // 无法使用array
+	Println(sum(arr...))        // 字符串解构 我的天
 }
 
 // 定義函數時候的可變參數
