@@ -1,1 +1,5 @@
-func
+package example
+
+func init() {
+
+}
