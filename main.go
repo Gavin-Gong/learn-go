@@ -1,7 +1,7 @@
 package main
 
 // _ "./example"
-import _ "./test"
+// import _ "./test"
 
 func main() {
 
