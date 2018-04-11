@@ -1,4 +1,4 @@
-package NodeList
+package LinkedList
 
 // 单个节点
 type Node struct {
