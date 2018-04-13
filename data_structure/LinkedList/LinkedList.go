@@ -61,13 +61,37 @@ func(list *LinkedList) RemoveByIdx(idx int) bool {
 	cur.next = cur.next.next
 	return true	                                                                                                                                                                                                                                                                                                                                                                                                                                                
 }
-// 插入一个元素
-// func (list *LinkedList)AddByIdx(i int, v interface{}) bool {
+// 插入 一个元素到指定位置
+func (list *LinkedList)AddByIdx(idx int, v interface{}) bool {
+	data := &Node{data: v}
 
-// }
+	// 当没有元素时 直接赋值给head 完成操作
+	if list.head == nil {
+		list.head = data
+		return true
+	}
+	if idx == 0 {
+		tmp := list.head
+		list.head = data
+		data.next = tmp
+	}
+	// 取到选中的位置的前一位
+	cur := list.head
+	for i := 0; i < idx; i ++ {
+		cur = cur.next
+		// 处理越界情况
+		if cur.next.next == nil {
+			return false
+		}
+	}
+	tmp := cur.next // 保存临时地址
+	cur.next = data
+	data.next = tmp
+	return true
+}
 
 // 获取前面一个值
-func (list *LinkedList)GetFirst(i interface{}) (interface{}, bool) {
+func (list *LinkedList)GetFirst() (interface{}, bool) {
 	if list.head == nil {
 		return 0, false
 	}
@@ -75,7 +99,7 @@ func (list *LinkedList)GetFirst(i interface{}) (interface{}, bool) {
 }
 
 // 获取最后一个值
-func (list *LinkedList)GetLast(i interface{}) (interface{}, bool) {
+func (list *LinkedList)GetLast() (interface{}, bool) {
 	if list.head == nil {
 		return 0, false
 	}
@@ -87,7 +111,7 @@ func (list *LinkedList)GetLast(i interface{}) (interface{}, bool) {
 }
 
 // 获取长度
-func (list *LinkedList)GetSize(i interface{}) int {
+func (list *LinkedList)GetSize() int {
 	count := 0
 	cur := list.head
 	for cur != nil {
@@ -98,7 +122,7 @@ func (list *LinkedList)GetSize(i interface{}) int {
 }
 
 // 获取值的slice
-func (list *LinkedList)GetValues(i interface{}) []interface{} {
+func (list *LinkedList)GetValues() []interface{} {
 	var vals []interface{}
 	cur := list.head
 	for cur != nil {
