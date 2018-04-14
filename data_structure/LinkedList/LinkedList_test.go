@@ -23,17 +23,52 @@ func Test_InsertLast(t *testing.T)  {
 		t.Errorf("except 3 but get %s", list.head.next.next.data)
 	}
 }
+
+/* func Test_RemoveByIdx(t *testing.T) {
+	list := LinkedList{}
+	list.InsertLast(1)
+	list.InsertLast(2)
+	list.InsertLast(3)
+	ok := list.RemoveByIdx(1)
+	if ok && list.head.next.data != 3 {
+		t.Errorf("exceped 3 but get %d", list.head.next.data)
+	}
+} */
+
+// func Test_RemoveByVal(t *testing.T) {
+// 	list := LinkedList{}
+// 	list.InsertLast(1)
+// 	list.InsertLast(2)
+// 	list.InsertLast(2)
+// 	ok := list.RemoveByVal(2)
+// 	if ok && list.head.data != 1 {
+// 		t.Errorf("except 1 but get %d", list.head.data)
+// 	}
+// }
 // func Test_AddByIdx_1(t *testing.T) {
 // 	list := LinkedList{}
 // 	list.InsertLast(1)
 // 	list.InsertLast(2)
 // 	list.InsertLast(3)
-// 	list.AddByIdx(0, -1)
-// 	if list.head.data != -1 {
+// 	ok := list.AddByIdx(0, -1)
+// 	if !ok {
 // 		t.Errorf("excepted -1 but get %s", list.head.data)
 // 	}
 // }
 
+func Test_HasValue(t *testing.T) {
+	list := LinkedList{}
+	list.InsertFirst(2)
+	list.InsertLast(34)
+	ok_1 := list.HasValue(2)
+	ok_2 := list.HasValue(233)
+	if ok_1 == false {
+		t.Errorf("except true but get")
+	} 
+	if ok_2 == true {
+		t.Errorf("except true but get")
+	} 
+}
 func Test_GetFirst(t *testing.T) {
 	list := LinkedList{}
 	list.InsertFirst(2)

@@ -1,5 +1,5 @@
 package LinkedList
-
+import "fmt"
 // 单个节点
 type Node struct {
 	data interface{}
@@ -61,8 +61,30 @@ func(list *LinkedList) RemoveByIdx(idx int) bool {
 	cur.next = cur.next.next
 	return true	                                                                                                                                                                                                                                                                                                                                                                                                                                                
 }
+
+// 根据值移除元素
+func(list *LinkedList) RemoveByVal(v interface{}) bool {
+	if list.head == nil {
+		return false
+	}
+	if list.head.data == v {
+		list.head = list.head.next
+		return true
+	}
+	cur := list.head
+	for cur.next != nil {
+		if cur.next.data == v {
+			cur.next = cur.next.next
+			return true
+		}
+		cur = cur.next
+	}
+	return false
+}
+
 // 插入 一个元素到指定位置
 func (list *LinkedList)AddByIdx(idx int, v interface{}) bool {
+	fmt.Println("herre")
 	data := &Node{data: v}
 
 	// 当没有元素时 直接赋值给head 完成操作
@@ -88,6 +110,21 @@ func (list *LinkedList)AddByIdx(idx int, v interface{}) bool {
 	cur.next = data
 	data.next = tmp
 	return true
+}
+
+// 判断是否有某个值
+func (list *LinkedList)HasValue(v interface{}) bool {
+	if list.head == nil {
+		return false
+	}
+	cur := list.head
+	for cur != nil {
+		if (cur.data == v) {
+			return true
+		}
+		cur = cur.next
+	}
+	return false 
 }
 
 // 获取前面一个值
