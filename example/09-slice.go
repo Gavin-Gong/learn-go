@@ -1,6 +1,6 @@
 package example
 
-func init() {
+func slc() {
 	// 创建
 	slice := make([]string, 3)
 

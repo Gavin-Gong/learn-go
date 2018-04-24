@@ -3,7 +3,7 @@ package example
 import . "fmt"
 import "time"
 
-func init() {
+func tc() {
 	ticker := time.NewTicker(time.Second)
 	go func() {
 		for t := range ticker.C {

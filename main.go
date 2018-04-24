@@ -1,9 +1,8 @@
 package main
 
-// _ "./example"
-// import _ "./test"
-import _"github.com/Gavin-Gong/learn-go/data_structure/LinkedList"
+// import "github.com/Gavin-Gong/learn-go/crawler"
+import _ "github.com/Gavin-Gong/learn-go/example"
 
 func main() {
-
+	// crawler.Start()
 }

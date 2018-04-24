@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 )
 
-func init() {
+func io() {
 	data, _ := ioutil.ReadDir("./")
 	// fmt.Println(data, err)
 	for _, v := range data {

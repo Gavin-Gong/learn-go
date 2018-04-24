@@ -4,7 +4,7 @@ import (
 	. "fmt"
 )
 
-func init() {
+func mp() {
 	// create map, key 只能是非引用类型, value可以是任意类型
 	dict := make(map[bool]string) // 声明
 	hash := map[string]int{"foo": 1, "bar": 2}

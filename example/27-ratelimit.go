@@ -1,6 +1,6 @@
 package example
 
-func init() {
+func rt() {
 	reqs := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		reqs <- i

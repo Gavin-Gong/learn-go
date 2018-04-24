@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func init() {
+func swt() {
 	// case: 1
 	i := 1
 	switch i {

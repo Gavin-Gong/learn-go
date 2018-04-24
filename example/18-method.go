@@ -22,7 +22,7 @@ func (m *Me) Code() {
 
 // go 会自动处理指针接受者和结构体接受者之间调用
 
-func init() {
+func mt() {
 	me := Me{"zen", 24}
 	me.ListenMusic()
 	Println(me)

@@ -4,7 +4,7 @@ import (
 	. "fmt"
 )
 
-func init() {
+func ret() {
 	//
 	x, y := 1, 2
 	a, b := retval(x, y)

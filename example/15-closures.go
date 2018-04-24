@@ -4,7 +4,7 @@ import (
 	. "fmt"
 )
 
-func init() {
+func cs() {
 	// 匿名函数/ 立即执行函数
 	func() {
 		call := closures()

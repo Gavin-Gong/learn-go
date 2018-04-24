@@ -1,5 +1,5 @@
 package example
 
-func init() {
+func to() {
 
 }

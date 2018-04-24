@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func init() {
+func vr() {
 	var a = 1
 	var b, c = 2, true
 	d := "short def"

@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func init() {
+func tm() {
 	timer := time.NewTimer(2 * time.Second) // define a timer
 	<-timer.C                               // 通過通道傳遞信息
 	Println("start")

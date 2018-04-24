@@ -18,7 +18,7 @@ func (m IsMe) Write() string {
 	return "xx"
 }
 
-func init() {
+func itf() {
 	me := IsMe{}
 	// me.
 	me.Code()

@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func init() {
+func f() {
 	arr := [...]int{1, 2, 3, 4, 5, 6}
 	// range loop
 	for i, v := range arr {

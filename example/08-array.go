@@ -4,7 +4,7 @@ import (
 	. "fmt"
 )
 
-func init() {
+func arr() {
 	var arr [5]int                        // 未赋值之前都是具有空值的 数字类型就是0
 	Println("print arr len %t", len(arr)) // 长度
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func init() {
+func val() {
 	fmt.Println("hello" + "World")
 	fmt.Println(true || false)
 	fmt.Println(true && false)

@@ -13,7 +13,7 @@ func worker(id int, jobs <-chan int, res chan<- int) {
 
 }
 
-func init() {
+func wp() {
 	jobs := make(chan int, 100)
 	res := make(chan int, 100)
 

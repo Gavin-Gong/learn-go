@@ -4,7 +4,7 @@ import (
 	. "fmt"
 )
 
-func init() {
+func avriadic() {
 	arr := []int{1, 2, 3, 4, 5} // 无法使用array
 	Println(sum(arr...))        // 字符串解构 我的天
 }

@@ -10,7 +10,7 @@ type me struct {
 	age  int
 }
 
-func init() {
+func stct() {
 	g := me{"Zen", 24} //简写, 对字段顺序有严格要求
 	kf := me{name: "GG", age: 24}
 	Println(g, kf)

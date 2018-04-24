@@ -16,7 +16,7 @@ func compute(n int) (int, error) {
 	return n, nil
 
 }
-func init() {
+func er() {
 	if _, e := compute(3); e != nil {
 		Println("errors")
 	} else {

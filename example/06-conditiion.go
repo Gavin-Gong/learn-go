@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func init() {
+func cdt() {
 	if num := 1; num > 0 {
 		fmt.Println(">0", num)
 	} else if num < -9 {

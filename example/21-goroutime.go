@@ -7,7 +7,7 @@ import . "fmt"
  * goroutime是go支持高并发的核心所在
  * goroutine 执行的函数会与非goroutine代码同时执行
  */
-func init() {
+func grt() {
 	console("no goroutine")
 	go func(str string) {
 		console(str)

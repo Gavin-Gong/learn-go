@@ -1,6 +1,6 @@
 package example
 
-func init() {
+func fc() {
 
 }
 

@@ -2,7 +2,7 @@ package example
 
 import . "fmt"
 
-func init() {
+func pt() {
 	val := 1
 
 	// & 取指针地址
