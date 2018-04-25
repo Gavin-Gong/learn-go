@@ -39,5 +39,5 @@ func flagCL() {
 }
 func init() {
 	// basicCL()
-	flagCL()
+	// flagCL()
 }
