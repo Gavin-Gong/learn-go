@@ -40,8 +40,8 @@ func getEnterPages() {
 func getDetailPages(url string) {
 	doc, _ := goquery.NewDocument(url)
 	str := doc.Find("#content .prev-next-page").Text()
-	// size := parsePageSize(str)
-	fmt.Println(str)
+	size := parsePageSize(str)
+	fmt.Println(size)
 }
 
 func parsePageSize(s string) int {

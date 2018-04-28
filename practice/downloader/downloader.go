@@ -33,6 +33,6 @@ func DownLoad(path string, url string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("xxx")
+	fmt.Println("下载成功")
 	return nil
 }
