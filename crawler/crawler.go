@@ -5,6 +5,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/Gavin-Gong/learn-go/practice/downloader"
 	"github.com/PuerkitoBio/goquery"
 )
 
@@ -18,6 +19,8 @@ func Start() {
 }
 
 //
+var fileName = 1
+
 func getEnterPages() {
 	// name :=
 	page := 1
@@ -41,7 +44,7 @@ func getEnterPages() {
 			fmt.Println("获取入口页面:", title)
 		})
 		fmt.Println("开始爬取图集")
-		for _, page := range Pages {
+		for idx, page := range Pages {
 			recv := make(chan string, page.size)
 			go func() {
 				for i := 0; i < page.size; i++ {
@@ -49,19 +52,30 @@ func getEnterPages() {
 					if i == 0 {
 						url = page.entry
 					} else {
-						url = page.entry + strconv.Itoa(i+1)
+						url = page.entry + "/" + strconv.Itoa(i+1)
 					}
+					// fmt.Println(url)
 					doc, _ := goquery.NewDocument(url)
 					image, _ := doc.Find("#content figure img").Attr("src")
 					fmt.Println(image)
 					recv <- image
 				}
 			}()
-			str := <-recv
-			fmt.Println("chan", str)
-			page.images = append(page.images, str)
+			for i := 0; i < page.size; i++ {
+				str := <-recv
+				// fmt.Println(page.images, str)
+				Pages[idx].images = append(Pages[idx].images, str)
+			}
 		}
-		// fmt.Println(Pages)
+	}
+	// fmt.Println("获取所有页面数据完成", len(Pages))
+	for _, page := range Pages {
+		// fmt.Println(page)
+		for _, url := range page.images {
+			fileName++
+			sufix := strconv.Itoa(fileName) + ".jpg"
+			downloader.DownLoad("./temp/"+sufix, url)
+		}
 	}
 }
 func getDetailPages(url string) {

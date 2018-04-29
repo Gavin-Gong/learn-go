@@ -5,8 +5,9 @@ import "github.com/Gavin-Gong/learn-go/crawler"
 
 // import _ "github.com/Gavin-Gong/learn-go/practice/downloader"
 // import "github.com/Gavin-Gong/learn-go/practice/spotlight-pic"
+// import "github.com/Gavin-Gong/learn-go/practice/downloader"
 
 func main() {
 	crawler.Start()
-	// spotlight.Start()
+	// downloader.Start()
 }
