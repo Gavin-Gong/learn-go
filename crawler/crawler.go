@@ -2,6 +2,7 @@ package crawler
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 
@@ -18,12 +19,8 @@ func Start() {
 	getEnterPages()
 }
 
-//
-var fileName = 1
-
 func getEnterPages() {
-	// name :=
-	page := 1
+	page := 176
 	var url string
 	for i := 0; i < page; i++ {
 		if i == 0 {
@@ -43,7 +40,7 @@ func getEnterPages() {
 			Pages = append(Pages, Page{entry: url, title: title, size: size})
 			fmt.Println("获取入口页面:", title)
 		})
-		fmt.Println("开始爬取图集")
+		fmt.Println("开始 爬取图集")
 		for idx, page := range Pages {
 			recv := make(chan string, page.size)
 			go func() {
@@ -57,7 +54,6 @@ func getEnterPages() {
 					// fmt.Println(url)
 					doc, _ := goquery.NewDocument(url)
 					image, _ := doc.Find("#content figure img").Attr("src")
-					fmt.Println(image)
 					recv <- image
 				}
 			}()
@@ -68,13 +64,26 @@ func getEnterPages() {
 			}
 		}
 	}
-	// fmt.Println("获取所有页面数据完成", len(Pages))
+	fmt.Println("获取所有页面数据完成")
 	for _, page := range Pages {
-		// fmt.Println(page)
+		fmt.Println("开始下载", page.title)
+		dir := page.title
+		wd, _ := os.Getwd()
+		path := wd + "/temp/mzitu/" + dir
+		if _, err := os.Stat(path); err == nil {
+			continue
+		}
+		os.MkdirAll(path, 774)
+		fileName := 0
 		for _, url := range page.images {
 			fileName++
-			sufix := strconv.Itoa(fileName) + ".jpg"
-			downloader.DownLoad("./temp/"+sufix, url)
+			sufix := "/" + strconv.Itoa(fileName) + ".jpg"
+			err := downloader.DownLoad(path+sufix, url)
+			if err == nil {
+				fmt.Println("下载", url, "成功")
+			} else {
+				fmt.Println("下载", url, "失败")
+			}
 		}
 	}
 }

@@ -1,7 +1,6 @@
 package downloader
 
 import (
-	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -36,6 +35,5 @@ func DownLoad(path string, url string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("下载成功")
 	return nil
 }
