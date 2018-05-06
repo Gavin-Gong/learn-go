@@ -5,7 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Gavin-Gong/learn-go/crawler"
+	_ "github.com/Gavin-Gong/learn-go/crawler"
+	"github.com/Gavin-Gong/learn-go/web/01-basic"
 )
 
 // import _ "github.com/Gavin-Gong/learn-go/practice/downloader"
@@ -13,8 +14,9 @@ import (
 // import "github.com/Gavin-Gong/learn-go/practice/downloader"
 
 func main() {
-	crawler.Start()
+	// crawler.Start()
 	// downloader.Start()
+	basic.Start()
 }
 
 func inits() {
