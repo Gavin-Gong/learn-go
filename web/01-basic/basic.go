@@ -54,7 +54,7 @@ func handleBody(w http.ResponseWriter, req *http.Request) {
 	w.Write(ret)
 }
 
-/* ---------------------以 JSON 返回请求Query参数---------------------------- */
+/* ---------------------以 JSON 返回请求Query参数----------------------- */
 func handleQuery(w http.ResponseWriter, req *http.Request) {
 	retMap := make(map[string]interface{})
 	for k, _ := range req.URL.Query() {

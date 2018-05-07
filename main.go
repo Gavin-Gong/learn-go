@@ -6,7 +6,8 @@ import (
 	"os"
 
 	_ "github.com/Gavin-Gong/learn-go/crawler"
-	"github.com/Gavin-Gong/learn-go/web/01-basic"
+	// "github.com/Gavin-Gong/learn-go/web/01-basic"
+	"github.com/Gavin-Gong/learn-go/web/02-fileSrv"
 )
 
 // import _ "github.com/Gavin-Gong/learn-go/practice/downloader"
@@ -16,7 +17,8 @@ import (
 func main() {
 	// crawler.Start()
 	// downloader.Start()
-	basic.Start()
+	// basic.Start()
+	fileSrv.Start()
 }
 
 func inits() {
