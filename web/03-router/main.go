@@ -20,13 +20,15 @@ func (r *Route) Get(url string, handler func(w http.ResponseWriter, r *http.Requ
 func (r *Route) Post(url string, handler func(w http.ResponseWriter, r *http.Request)) {
 
 }
+func (this *Route) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+
+}
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("xx"))
 }
 func NewRouter() Route {
 	r := Route{}
-	r.handler = http.HandleFunc("/", handler)
 	return r
 }
 
@@ -42,8 +44,9 @@ func Start() {
 	r.Post("/url", func(w http.ResponseWriter, r *http.Request) {
 
 	})
-
-	if err := http.ListenAndServe(":8080", r.handler); err != nil {
-		fmt.Println(err)
+	server := http.Server{
+		Addr:    ":8080",
+		Handler: &r,
 	}
+	server.ListenAndServe()
 }
