@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
+	"strings"
 )
 
 type registerHandle func(w http.ResponseWriter, r *http.Request)
@@ -21,21 +22,28 @@ type Route struct {
 }
 
 func (r *Route) Get(url string, handler func(w http.ResponseWriter, r *http.Request)) {
+	reg := regexp.MustCompile(`{:([a-zA-Z0-9]+)}`)
+	delimiterArr := strings.Split(url[1:], "/")
+
+	for index, v := range delimiterArr {
+		if reg.MatchString(v) {
+			delimiterArr[index] = "[a-zA-Z0-9]+"
+		}
+	}
+	regexpStr := strings.Join(delimiterArr, "/")
 	r.handlerMap["GET:"+url] = urlHandler{
 		method:    "GET",
 		url:       url,
 		handle:    handler,
 		params:    make(map[string]string),
-		regexpUrl: regexp.MustCompile(url),
+		regexpUrl: regexp.MustCompile("^/" + regexpStr + "$"),
 	}
-	// hello/{:id}/{:uid}
-	// hello/ss/xx
-	// hello/xx/xx/xx
-	reg := regexp.MustCompile(`{:([a-zA-Z0-9]+)}`)
-	paramsArr := reg.FindStringSubmatch(url)
-	for _, v := range paramsArr {
-		r.handlerMap["GET"+url].params[v] = ""
-	}
+
+	// 写入params参数
+	// paramsArr := reg.FindStringSubmatch(url)
+	// for _, v := range paramsArr {
+	// 	r.handlerMap["GET"+url].params[v] = ""
+	// }
 }
 func (r *Route) Post(url string, handler func(w http.ResponseWriter, r *http.Request)) {
 	r.handlerMap["POST:"+url] = urlHandler{
@@ -73,9 +81,9 @@ func Start() {
 	r.Get("/url", func(w http.ResponseWriter, r *http.Request) {
 
 	})
-	r.Post("/url", func(w http.ResponseWriter, r *http.Request) {
+	// r.Post("/url", func(w http.ResponseWriter, r *http.Request) {
 
-	})
+	// })
 	server := http.Server{
 		Addr:    ":8080",
 		Handler: &r,
