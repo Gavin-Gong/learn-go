@@ -2,13 +2,8 @@ package main
 
 // import _ "github.com/Gavin-Gong/learn-go/example"
 import (
-	"fmt"
-	"os"
-
 	_ "github.com/Gavin-Gong/learn-go/crawler"
-	// "github.com/Gavin-Gong/learn-go/web/01-basic"
-	// "github.com/Gavin-Gong/learn-go/web/02-fileSrv"
-	"github.com/Gavin-Gong/learn-go/web/03-router"
+	middleware "github.com/Gavin-Gong/learn-go/web/04-middleware"
 )
 
 // import _ "github.com/Gavin-Gong/learn-go/practice/downloader"
@@ -20,16 +15,6 @@ func main() {
 	// downloader.Start()
 	// basic.Start()
 	// fileSrv.Start()
-	router.Start()
-}
-
-func inits() {
-	// path := "./test/main.go"
-	wd, _ := os.Getwd()
-	os.MkdirAll(wd+"/test", 774)
-	file, err := os.Create(wd + "/test" + "/main.go")
-	if err != nil {
-		fmt.Println(err)
-	}
-	defer file.Close()
+	// router.Start()
+	middleware.Start()
 }
